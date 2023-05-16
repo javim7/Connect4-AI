@@ -1,0 +1,4 @@
+https://roboticsproject.readthedocs.io/en/latest/ConnectFourAlgorithm.html#:~:text=The%20algorithm%20chosen%20to%20play%20Connect%204%20is,it%20a%20perfect%20choice%20for%20two-player%2C%20turn-based%20games.
+https://connectfour.marcomelilli.com/
+https://github.com/avteja/Connect-4
+sudo wget https://github.com/shiftkey/desktop/releases/download/release-2.6.3-linux1/GitHubDesktop-linux-2.6.3-linux1.deb
