@@ -1,3 +1,4 @@
+// 6 listas de 7 elementos
 class Connect4 {
     constructor() {
       this.board = [];
@@ -118,28 +119,29 @@ class Connect4 {
 
     movement(board, player) {
       console.log('Player ' + player + 's turn');
+      console.log(board);
       const depth = 5;
       const maximizingPlayer = true;
       const alpha = -Infinity;
       const beta = Infinity;
     
       const possibleMoves = this.getPossibleMoves(board);
-      console.log(possibleMoves);
+      // console.log(possibleMoves);
     
       let bestMove = null;
       let bestScore = -Infinity;
     
       // Evaluate the score of the current board
       const initialScore = this.calculateHeuristic(board, player);
-      console.log('Initial score: ' + initialScore)
+      // console.log('Initial score: ' + initialScore)
     
       if (initialScore >= 0) {
         // Player's favorable situation, find the best move
         for (const move of possibleMoves) {
           const newBoard = this.makeMove(board, move, player);
           const score = this.minimax(newBoard, depth - 1, !maximizingPlayer, alpha, beta, player);
-          console.log(newBoard)
-          console.log('move: ' + move + ' score: ' + score);
+          // console.log(newBoard)
+          // console.log('move: ' + move + ' score: ' + score);
     
           if (score > bestScore) {
             bestScore = score;
