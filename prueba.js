@@ -168,8 +168,8 @@ class Connect4 {
           for (const move of possibleMoves) {
             const newBoard = this.makeMove(board, move, player);
             const score = this.minimax(newBoard, depth - 1, !maximizingPlayer, alpha, beta, player);
-            console.log(newBoard)
-            console.log('move: ' + move + ' score: ' + score);
+            // console.log(newBoard)
+            // console.log('move: ' + move + ' score: ' + score);
       
             if (score > opponentBestScore) {
               opponentBestScore = score;
@@ -187,7 +187,14 @@ class Connect4 {
         let maxScore = 10000;
         let minScore = -10000;
         let opponent = player === 1 ? 2 : 1;
-      
+        
+        // Winning move
+        if (this.checkWin(board, player)) {
+          return maxScore;
+        } else if (this.checkWin(board, opponent)) {
+          return minScore;
+        }
+
         // Evaluate horizontal combinations
         for (let row = 0; row < 6; row++) {
           for (let col = 0; col < 4; col++) {
@@ -302,7 +309,7 @@ class Connect4 {
             alpha = Math.max(alpha, maxScore);
             
             if (beta <= alpha) {
-              break; // Beta cutoff
+              break; // Poda Beta
             }
           }
       
@@ -318,7 +325,7 @@ class Connect4 {
             beta = Math.min(beta, minScore);
       
             if (beta <= alpha) {
-              break; // Alpha cutoff
+              break; // poda Alpha
             }
           }
       
