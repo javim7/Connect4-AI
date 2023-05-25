@@ -1,4 +1,25 @@
 https://roboticsproject.readthedocs.io/en/latest/ConnectFourAlgorithm.html#:~:text=The%20algorithm%20chosen%20to%20play%20Connect%204%20is,it%20a%20perfect%20choice%20for%20two-player%2C%20turn-based%20games.
-https://connectfour.marcomelilli.com/
 https://github.com/avteja/Connect-4
 sudo wget https://github.com/shiftkey/desktop/releases/download/release-2.6.3-linux1/GitHubDesktop-linux-2.6.3-linux1.deb
+
+Connect4
+https://www.cbc.ca/kids/games/play/connect-4 win 
+https://connect4.org/ win
+https://connectfour.marcomelilli.com/ win
+https://papergames.io/en/connect4 lose win
+https://connect4.gamesolver.org/ mega lose
+
+Juegos sin puntos en el centro:
+w: 5
+l: 2
+d: 0
+
+Juegos con puntos en el centro:
+w: 0
+l: 0
+d: 0
+
+juegos con moves del oponente:
+w: 0
+l: 0
+d: 0
