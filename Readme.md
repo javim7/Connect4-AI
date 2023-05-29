@@ -24,12 +24,12 @@ The project contains three main files:
 npm install
 ```
 
-2. Run the file of choice. (Client.js and Algorithms.js only work if the server is running) Play.js is recommended.
+2. Run the file of choice. (`client.js` and `algorithms.js` only work if the server is running) `Play.js` is recommended, as it is the file in which a game can be played against the machine.
 ```bash
 node play.js
 ```
 
-After running the play.js file, you will see a board pop up in the terminal, and it will ask you for an input, which must be an integer from 0 to 6, as this represents the choices available in the board. The game will look like this:
+After running the play.js file, you will see a board pop up in the terminal, and it will ask you for an input, which must be an integer from 0 to 6, as this represents the choices available in the board. The terminal will also show a best score and a best move, this are the calculations of which available move had the highest score, hence, the best move. The game will look like this:
 ```bash
 Player 1's turn
 Best Score: 5300. Best Move: 1
