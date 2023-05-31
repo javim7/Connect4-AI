@@ -39,6 +39,10 @@ function movement(board, player) {
       if (bestMove === null) {
         bestMove = possibleMoves[0]
       }
+
+      if(score === -Infinity) {
+        bestMove = possibleMoves[0]
+      }
     }
   
     console.log('\x1b[33mBest Score: \x1b[0m' + bestScore + '\x1b[33m. Best Move: \x1b[0m' + bestMove);

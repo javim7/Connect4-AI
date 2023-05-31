@@ -1,13 +1,13 @@
 const io = require('socket.io-client');
 const algorithm = require('./algorithms.js');
-const socket = io('http://192.168.1.134:4000');
+const socket = io('http://192.168.1.131:4000');
 
 socket.on('connect', function () {
     console.log('Conectado al servidor.');
 
     // Sign in del jugador
     socket.emit('signin', {
-        user_name: 'Mombi',
+        user_name: 'mombi',
         tournament_id: 142857,
         user_role: 'player'
     });
@@ -26,8 +26,8 @@ socket.on('ready', function (data) {
 
     console.log("")
     console.log('Listo para jugar - Juego: ' + gameID)
-    console.log('Turno de: ' + playerTurnID)
-    console.log(board)
+    // console.log('Turno de: ' + playerTurnID)
+    // console.log(board)
 
     // Ejemplo: Movimiento Random
     // var movementx = Math.floor(Math.random() * board.length);

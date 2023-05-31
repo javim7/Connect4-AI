@@ -190,7 +190,7 @@ class Connect4 {
     movement(board, player) {
       console.log('\x1b[33m\nPlayer \x1b[0m' + player + "\x1b[33m's turn\x1b[0m");
       // console.log(board)
-      const depth = 5;
+      const depth = 6;
       const maximizingPlayer = true;
       const alpha = -Infinity;
       const beta = Infinity;
