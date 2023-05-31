@@ -190,7 +190,7 @@ class Connect4 {
     movement(board, player) {
       console.log('\x1b[33m\nPlayer \x1b[0m' + player + "\x1b[33m's turn\x1b[0m");
       // console.log(board)
-      const depth = 6;
+      const depth = 5;
       const maximizingPlayer = true;
       const alpha = -Infinity;
       const beta = Infinity;
@@ -204,10 +204,10 @@ class Connect4 {
       for (const move of possibleMoves) {
         const newBoard = this.makeMove(board, move, player);
         let score = this.minimax(newBoard, depth - 1, !maximizingPlayer, alpha, beta, player);
-         if (move == 3) {
-              score += 750
-            } else if(move == 2 || move == 4) {
-             score += 100 
+         if (move === 3) {
+              score += 710
+            } else if(move === 2 || move === 4) {
+             score += 105 
             }
         // console.log('Move: ' + move + ' Score: ' + score);
     
@@ -226,9 +226,11 @@ class Connect4 {
           bestMove = move;
         }
 
-        if (bestMove === null) {
-          bestMove = possibleMoves[0]
-        }
+      }
+
+      if (bestMove === null) {
+        console.log("possibleMoves:" + possibleMoves);
+        bestMove = possibleMoves[0]
       }
     
       console.log('\x1b[33mBest Score: \x1b[0m' + bestScore + '\x1b[33m. Best Move: \x1b[0m' + bestMove);

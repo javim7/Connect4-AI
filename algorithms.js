@@ -14,10 +14,10 @@ function movement(board, player) {
     for (const move of possibleMoves) {
       const newBoard = makeMove(board, move, player);
       let score = minimax(newBoard, depth - 1, !maximizingPlayer, alpha, beta, player);
-       if (move == 3) {
-            score += 750
-          } else if(move == 2 || move == 4) {
-           score += 100 
+       if (move === 3) {
+            score += 710
+          } else if(move === 2 || move === 4) {
+           score += 105 
           }
       // console.log('Move: ' + move + ' Score: ' + score);
   
@@ -36,13 +36,11 @@ function movement(board, player) {
         bestMove = move;
       }
 
-      if (bestMove === null) {
-        bestMove = possibleMoves[0]
-      }
+    }
 
-      if(score === -Infinity) {
-        bestMove = possibleMoves[0]
-      }
+    if (bestMove === null) {
+      console.log("possibleMoves:" + possibleMoves);
+      bestMove = possibleMoves[0]
     }
   
     console.log('\x1b[33mBest Score: \x1b[0m' + bestScore + '\x1b[33m. Best Move: \x1b[0m' + bestMove);
