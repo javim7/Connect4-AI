@@ -63,62 +63,62 @@ function calculateHeuristic(board, player) {
 
     // Evaluate horizontal combinations
     for (let row = 0; row < 6; row++) {
-    for (let col = 0; col < 4; col++) {
-        let window = [board[row][col], board[row][col + 1], board[row][col + 2], board[row][col + 3]];
-        if (window.some(cell => cell === player) || window.some(cell => cell === opponent)) {
-            if (window.every((cell) => cell !== undefined)) {
-            score += evaluateWindow(window, player);
-            if (score === maxScore || score === minScore) {
-                return score;
-            }
-            }
-        }
-    }
+      for (let col = 0; col < 4; col++) {
+          let window = [board[row][col], board[row][col + 1], board[row][col + 2], board[row][col + 3]];
+          if (window.some(cell => cell === player) || window.some(cell => cell === opponent)) {
+              if (window.every((cell) => cell !== undefined)) {
+              score += evaluateWindow(window, player);
+              if (score === maxScore || score === minScore) {
+                  return score;
+              }
+              }
+          }
+      }
     }
 
     // Evaluate vertical combinations
     for (let col = 0; col < 7; col++) {
-    for (let row = 0; row < 3; row++) {
-        let window = [board[row][col], board[row + 1][col], board[row + 2][col], board[row + 3][col]];
-        if (window.some(cell => cell === player) || window.some(cell => cell === opponent)) {
-            if (window.every((cell) => cell !== undefined)) {
-            score += evaluateWindow(window, player);
-            if (score === maxScore || score === minScore) {
-                return score;
-            }
-            }
-        }
-    }
+      for (let row = 0; row < 3; row++) {
+          let window = [board[row][col], board[row + 1][col], board[row + 2][col], board[row + 3][col]];
+          if (window.some(cell => cell === player) || window.some(cell => cell === opponent)) {
+              if (window.every((cell) => cell !== undefined)) {
+              score += evaluateWindow(window, player);
+              if (score === maxScore || score === minScore) {
+                  return score;
+              }
+              }
+          }
+      }
     }
 
     // Evaluate diagonal combinations (top left to bottom right)
     for (let col = 0; col < 4; col++) {
-    for (let row = 0; row < 3; row++) {
-        let window = [board[row][col], board[row + 1][col + 1], board[row + 2][col + 2], board[row + 3][col + 3]];
-        if (window.some(cell => cell === player) || window.some(cell => cell === opponent)) {
-            if (window.every((cell) => cell !== undefined)) {
-            score += evaluateWindow(window, player);
-                if (score === maxScore || score === minScore) {
-                    return score;
-                }
-            }
-        }
-    }
+      for (let row = 0; row < 3; row++) {
+          let window = [board[row][col], board[row + 1][col + 1], board[row + 2][col + 2], board[row + 3][col + 3]];
+          if (window.some(cell => cell === player) || window.some(cell => cell === opponent)) {
+              if (window.every((cell) => cell !== undefined)) {
+              score += evaluateWindow(window, player);
+                  if (score === maxScore || score === minScore) {
+                      return score;
+                  }
+              }
+          }
+      }
     }
 
     // Evaluate diagonal combinations (bottom left to top right)
     for (let col = 0; col < 4; col++) {
-    for (let row = 3; row < 6; row++) {
-        let window = [board[row][col], board[row - 1][col + 1], board[row - 2][col + 2], board[row - 3][col + 3]];
-        if (window.some(cell => cell === player) || window.some(cell => cell === opponent)) {
-            if (window.every((cell) => cell !== undefined)) {
-            score += evaluateWindow(window, player);
-                if (score === maxScore || score === minScore) {
-                    return score;
-                }
-            }
-        }
-    }
+      for (let row = 3; row < 6; row++) {
+          let window = [board[row][col], board[row - 1][col + 1], board[row - 2][col + 2], board[row - 3][col + 3]];
+          if (window.some(cell => cell === player) || window.some(cell => cell === opponent)) {
+              if (window.every((cell) => cell !== undefined)) {
+              score += evaluateWindow(window, player);
+                  if (score === maxScore || score === minScore) {
+                      return score;
+                  }
+              }
+          }
+      }
     }
 
     return score;
@@ -139,20 +139,20 @@ function evaluateWindow(window, player) {
 
     // Asignar las puntuaciones basadas en el número de piezas del jugador en la ventana
     if (countPlayer === 4) {
-    return maxScore; // Player wins
+      return maxScore; // Player wins
     } else if (countPlayer === 3 && countEmpty === 1) {
-    score += 1000; // Favorable position for the player
+      score += 1000; // Favorable position for the player
     } else if (countPlayer === 2 && countEmpty === 2) {
-    score += 100; // Minor advantage for the player
+      score += 100; // Minor advantage for the player
     }
 
     // Asignar las puntuaciones basadas en el número de piezas del oponente en la ventana
     if (countOpponent === 4) {
-    return minScore // Opponent wins
+      return minScore // Opponent wins
     } else if (countOpponent === 3 && countEmpty === 1) {
-    score -= 1000; // Favorable position for the opponent
+      score -= 1000; // Favorable position for the opponent
     } else if (countOpponent === 2 && countEmpty === 2) {
-    score -= 100; // Minor advantage for the opponent
+      score -= 100; // Minor advantage for the opponent
     }
 
     return score;
