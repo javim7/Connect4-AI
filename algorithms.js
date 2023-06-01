@@ -14,11 +14,13 @@ function movement(board, player) {
     for (const move of possibleMoves) {
       const newBoard = makeMove(board, move, player);
       let score = minimax(newBoard, depth - 1, !maximizingPlayer, alpha, beta, player);
-       if (move === 3) {
-            score += 710
-          } else if(move === 2 || move === 4) {
-           score += 105 
-          }
+      if (move === 3) {
+        score += 706
+      } else if(move === 2 || move === 4) {
+       score += 105 
+      } else if(move === 1 || move === 5) {
+        score += 100
+      }
       // console.log('Move: ' + move + ' Score: ' + score);
   
       // Check if the move leads to an opponent's winning position

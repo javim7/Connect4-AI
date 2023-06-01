@@ -108,9 +108,9 @@ class Connect4 {
         let line = '\x1b[34m|\x1b[0m';
         for (let col = 0; col < 7; col++) {
           if (this.board[row][col] === 1) {
-            line += ' \x1b[31m●\x1b[0m \x1b[34m|\x1b[0m'; // red circle symbol (●)
+            line += ' \x1b[31m●\x1b[0m \x1b[34m|\x1b[0m'; // Yellow circle symbol (●)
           } else if (this.board[row][col] === 2) {
-            line += ' \x1b[33m●\x1b[0m \x1b[34m|\x1b[0m'; // yellow circle symbol (●)
+            line += ' \x1b[33m●\x1b[0m \x1b[34m|\x1b[0m'; // Red circle symbol (●)
           } else {
             line += ' \x1b[34m●\x1b[0m \x1b[34m|\x1b[0m'; // Blue circle symbol (●)
           }
@@ -205,11 +205,11 @@ class Connect4 {
         const newBoard = this.makeMove(board, move, player);
         let score = this.minimax(newBoard, depth - 1, !maximizingPlayer, alpha, beta, player);
          if (move === 3) {
-              score += 706
+              score += 3
             } else if(move === 2 || move === 4) {
-             score += 105 
+             score += 2 
             } else if(move === 1 || move === 5) {
-              score += 100
+                score += 1
             }
         // console.log('Move: ' + move + ' Score: ' + score);
     
@@ -242,15 +242,15 @@ class Connect4 {
   
       calculateHeuristic(board, player) {
         let score = 0;
-        let maxScore = 10000;
-        let minScore = -10000;
+        let maxScore = 100;
+        let minScore = -100;
         let opponent = player === 1 ? 2 : 1;
         
         // Winning move
         if (this.checkWin(board, player)) {
-          return maxScore;
+          score += maxScore;
         } else if (this.checkWin(board, opponent)) {
-          return minScore;
+          score += minScore;
         }
 
         // Evaluate horizontal combinations
@@ -319,8 +319,8 @@ class Connect4 {
       
       evaluateWindow(window, player) {
         let score = 0;
-        let maxScore = 10000;
-        let minScore = -10000;
+        let maxScore = 100;
+        let minScore = -100;
         let opponent = player === 1 ? 2 : 1;
         // console.log('window', window)
       
@@ -331,20 +331,20 @@ class Connect4 {
       
         // Asignar las puntuaciones basadas en el número de piezas del jugador en la ventana
         if (countPlayer === 4) {
-          return maxScore; // Player wins
+          score += maxScore; // Player wins
         } else if (countPlayer === 3 && countEmpty === 1) {
-          score += 1000; // Favorable position for the player
+          score += 5; // Favorable position for the player
         } else if (countPlayer === 2 && countEmpty === 2) {
-          score += 100; // Minor advantage for the player
+          score += 2; // Minor advantage for the player
         }
       
         // Asignar las puntuaciones basadas en el número de piezas del oponente en la ventana
         if (countOpponent === 4) {
-          return minScore // Opponent wins
+          score += minScore // Opponent wins
         } else if (countOpponent === 3 && countEmpty === 1) {
-          score -= 1000; // Favorable position for the opponent
+          score -= 5; // Favorable position for the opponent
         } else if (countOpponent === 2 && countEmpty === 2) {
-          score -= 100; // Minor advantage for the opponent
+          score -= 2; // Minor advantage for the opponent
         }
       
         return score;
