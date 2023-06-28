@@ -1,5 +1,8 @@
 # Connect 4 AI
 
+## Description
+This project is an implementation of a conenct 4 AI. It was built for a final project of the class *Introduction to Artificial Intelligence*. The final project was to build an artificial intelligence that was able to play connect 4. The last day of class, the teacher had a server in which every student of the class was connected, and then the teacher also had a controller program which made every AI play randomely against every other AI (back and forth). The controller program controlled how many wins, ties, and losses each AI had, and at the end the player with the most wins won the tournament. I am porud to mention that my AI tied in first place with another student's AI, both with and astonishing 37 wins and only one loss.
+
 ## Project Overview
 This project is an implementation of a connect 4 AI. The AI works based on three main points. 
 
